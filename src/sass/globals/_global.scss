@@ -1,0 +1,110 @@
+@use '../abstracts/' as a;
+
+// Global
+
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: a.$color-dark;
+  color: a.$color-light;
+}
+
+// Header 
+
+.header-main {
+  background-image: a.$gradient-background,
+    a.$img-background;
+  background-position: center;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .wrapper-text {
+    //Variables for responsivity
+    $font-size-title: clamp( 4rem, 10dvw, a.$font-size-title);
+    $font-size-subtitle: clamp( 1rem, 5dvw, a.$font-size-subtitle);
+    $font-spacing-title: clamp( 0.7rem, 10dvw, a.$font-spacing-tittle);
+    $font-spacing-subtittle: clamp( 0.7rem, 10dvw, a.$font-spacing-subtittle);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    h1 {
+      display: block;
+      font-family: a.$font-black;
+      font-size: $font-size-title;
+      font-weight: a.$font-weight-900;
+      letter-spacing: $font-spacing-title;
+      text-transform: uppercase;
+      filter: drop-shadow(0 0 71px a.$color-dropshadow);
+      //counteracting to the last letter spacing
+      text-align: right;
+      margin-right: calc(-1 * $font-spacing-title);
+    }
+
+    h2 {
+      font-family: a.$font-black;
+      font-size: $font-size-subtitle;
+      font-weight: a.$font-weight-900;
+      letter-spacing: $font-spacing-subtittle;
+      text-transform: uppercase;
+      line-height: 72px;
+      //counteracting to the last letter spacing
+      margin-right: calc(-1 * $font-spacing-subtittle);
+
+      span { 
+        display: block;
+      }
+    }
+  }
+}
+
+//navigation
+
+.navigation-wrapper {
+  $font-size-nav: clamp( 1rem, 5dvw, a.$font-size-nav);
+  width: 100dvw;
+  padding-block: a.$padding-block-global;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: clamp(1rem, 5dvw, a.$menu-links-spacing);
+
+    li{
+      a {
+        text-decoration: none;
+        color: a.$color-unactive;
+        font-family: a.$font-semibold;
+        font-size: $font-size-nav;
+        letter-spacing: a.$font-spacing-nav;
+        line-height: a.$font-line-height-nav;
+        text-transform: uppercase;
+        font-weight: a.$font-weight-600;
+      }
+    }
+  }
+}
+
+//footer
+
+.footer-main {
+  font-family: a.$font-regular;
+  font-size: a.$font-size-footer;
+  letter-spacing: a.$font-spacing-footer;
+  line-height: a.$font-line-height-nav;
+  font-weight: a.$font-weight-400;
+  text-align: center;
+  padding-block: a.$padding-block-global;
+}
