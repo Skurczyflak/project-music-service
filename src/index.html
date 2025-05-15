@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taste</title>
+    <link rel="stylesheet" type="text/css" href="css/green-audio-player.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -24,9 +25,68 @@
                 </ul>
         </nav>
     <main class="main-content">
+        <section class="home-page">
+            <div class="songs-wrapper">
+                <!-- <div class="player-wrapper">
+                    <h4>Title</h4>
+                    <div class="ready-player-1 player" data-id="1">
+                        <audio crossorigin>
+                            <source src="songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                    <div class="song-info">
+                        <p>tags</p>
+                        <p>ranking</p>
+                    </div>
+                </div> -->
+            </div>
+            <section class="subscribe">
+                <h2 class="subscribe-title">Subscribe <span>now</span></h2>
+                <div class="container-album">
+                    <button type="button" class="btn btn-subscribe">Join now</button>
+                    <div class="album">
+                        <div class="artist-img">
+                            <div class="artist-name">
+                                <h3 class="first-name">Dean</h3>
+                                <h3 class="last-name">Hen<span>son</span></h3>
+                            </div>
+                            <img src="images/artist.jpg" alt="album cover">
+                        </div>
+                        <div class="album-availbility">
+                            <h4>New album</h4>
+                            <p>
+                                <span>Available </span>
+                                <span>only </span>
+                                <span>for </span>
+                                <span>subscribers</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section class="search-page">
+            <h2 class="section-title">Search</h2>
+            <div class="search-container">
+                <label for="search-input">Name</label>
+                <input type="text" placeholder="Search" id="search-input">
+                <button type="button" class="btn btn-search">Search</button>
+            </div>
+            <h3 class="search-result">We have found <span class="search-count">3</span> songs...</h3>
+            <div class="songs-wrapper">
+            </div>
+        </section>
+        <section class="discover-page">
+            <h2 class="section-title">Discover</h2>
+            <p class="section-subtitle">Give it a try!</p>
+            <div class="songs-wrapper">
+            </div>
+        </section>
     </main>
     <footer class="footer-main">
         <p>All rights reserved</p>
     </footer>
+    <script src="js/green-audio-player.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

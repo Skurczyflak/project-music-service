@@ -1,9 +1,40 @@
 @use '../abstracts/' as a;
 
 .container-big{
-  width: clamp( 50%, 100%, 1920px);
+  width: clamp( 30%, 100%, 1920px);
   height: 1300px;
   display: flex;
   justify-self: center;
   justify-content: center;
+}
+
+.btn {
+  background-color: a.$color-primary;
+  color: a.$color-light;
+  border-radius: a.$border-radius-04;
+  border: 0;
+  text-transform: uppercase;
+  filter: drop-shadow(0 0 71px rgba(0,0,0,0.11));
+  cursor: pointer;
+}
+
+.btn-subscribe {
+  margin-top: 3ch;
+  padding-block: 3.5rem;
+  padding-inline: 2.3rem;
+  font-size: a.$font-size-40;
+  letter-spacing: a.$font-spacing-8;
+  line-height: a.$font-line-height-27;
+  font-weight: a.$font-weight-700;
+  font-family: a.$font-bold;
+}
+
+.btn-search {
+  height: 61px;
+  padding-inline: 1.5rem;
+  font-size: a.$font-size-20;
+  letter-spacing: a.$font-spacing-4;
+  line-height: a.$font-line-height-27;
+  font-weight: a.$font-weight-600;
+  font-family: a.$font-semibold;
 }

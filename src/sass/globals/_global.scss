@@ -24,10 +24,10 @@ body {
 
   .wrapper-text {
     //Variables for responsivity
-    $font-size-title: clamp( 4rem, 10dvw, a.$font-size-title);
-    $font-size-subtitle: clamp( 1rem, 5dvw, a.$font-size-subtitle);
-    $font-spacing-title: clamp( 0.7rem, 10dvw, a.$font-spacing-tittle);
-    $font-spacing-subtittle: clamp( 0.7rem, 10dvw, a.$font-spacing-subtittle);
+    $font-size-title: clamp( 3rem, 10dvw, a.$font-size-200);
+    $font-size-subtitle: clamp( 0.8rem, 5dvw, a.$font-size-36);
+    $font-spacing-title: clamp( 0.7rem, 10dvw, a.$font-spacing-120);
+    $font-spacing-subtittle: clamp( 0.7rem, 10dvw, a.$font-spacing-11);
 
     display: flex;
     flex-direction: column;
@@ -36,7 +36,6 @@ body {
     text-align: center;
 
     h1 {
-      display: block;
       font-family: a.$font-black;
       font-size: $font-size-title;
       font-weight: a.$font-weight-900;
@@ -68,9 +67,8 @@ body {
 //navigation
 
 .navigation-wrapper {
-  $font-size-nav: clamp( 1rem, 5dvw, a.$font-size-nav);
-  width: 100dvw;
-  padding-block: a.$padding-block-global;
+  $font-size-nav: clamp( 1rem, 5dvw, a.$font-size-30);
+  padding-block: a.$padding-block-10;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,7 +78,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: clamp(1rem, 5dvw, a.$menu-links-spacing);
+    gap: clamp(1rem, 5dvw, a.$font-spacing-105);
 
     li{
       a {
@@ -88,10 +86,14 @@ body {
         color: a.$color-unactive;
         font-family: a.$font-semibold;
         font-size: $font-size-nav;
-        letter-spacing: a.$font-spacing-nav;
-        line-height: a.$font-line-height-nav;
+        letter-spacing: a.$font-spacing-2;
+        line-height: a.$font-line-height-27;
         text-transform: uppercase;
         font-weight: a.$font-weight-600;
+      }
+
+      a:hover {
+        color: a.$color-light;
       }
     }
   }
@@ -101,10 +103,52 @@ body {
 
 .footer-main {
   font-family: a.$font-regular;
-  font-size: a.$font-size-footer;
-  letter-spacing: a.$font-spacing-footer;
-  line-height: a.$font-line-height-nav;
+  font-size: a.$font-size-20;
+  letter-spacing: a.$font-spacing-4;
+  line-height: a.$font-line-height-27;
   font-weight: a.$font-weight-400;
   text-align: center;
-  padding-block: a.$padding-block-global;
+  padding-block: a.$padding-block-10;
+}
+
+//player
+
+.player-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h4 {
+    align-self: center;
+    font-family: a.$font-semibold;
+    font-size: a.$font-size-30;
+    letter-spacing: a.$font-spacing-2;
+    line-height: a.$font-line-height-27;
+    text-transform: uppercase;
+    font-weight: a.$font-weight-600;
+  }
+
+  .song-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1rem;
+    font-family: a.$font-regular;
+    font-size: a.$font-size-20;
+    letter-spacing: a.$font-spacing-2;
+    line-height: a.$font-line-height-27;
+    font-weight: a.$font-weight-400;
+    color: a.$color-unactive;
+  }
+}
+
+.main-content .active {
+  display: block;
+}
+
+.songs-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

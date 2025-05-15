@@ -1,0 +1,145 @@
+// Home page
+@use '../abstracts/' as a;
+
+.home-page {
+  display: none;
+}
+
+
+.artist-name {
+  z-index: 1;
+  position: absolute;
+  bottom: 20px;
+  transform: translateX(-29ch);
+
+  .first-name,
+  .last-name {
+    font-size: clamp( 3rem, 5dvw, a.$font-size-100);
+    letter-spacing: clamp( 0.5rem, 1dvw, a.$font-spacing-20);
+    line-height: a.$font-line-height-27;
+    font-weight: a.$font-weight-900;
+    font-family: a.$font-black;
+    filter: drop-shadow(0 0 71px rgba(0,0,0,0.11));
+    
+    span {
+      color: a.$color-primary;
+    }
+
+  }
+}
+
+.album-availbility {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp( 1rem, 5dvw, a.$font-size-40);
+  letter-spacing: a.$font-spacing-8;
+  line-height: a.$font-line-height-27;
+  font-weight: a.$font-weight-700;
+  align-items: end;
+
+  h4 {
+    margin-bottom: 0;
+    font-family: a.$font-bold;
+    text-transform: uppercase;
+    color: a.$color-unactive;
+  }
+
+  p {
+    align-self: center;
+    font-family: a.$font-semibold;
+  }
+}   
+
+.container-album{
+  width: clamp( 30%, 100%, 1920px);
+  height: 1020px;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  gap: 8rem;
+  justify-content: center;
+
+  .album {
+    display: flex;
+    flex-direction: column;
+
+    .artist-img {
+      position: relative;
+      align-self: end;
+      padding-right: 4.5ch;
+
+      img {
+        width: clamp( 300px, 30dvw, 465px);
+        height: clamp(100%, 30dvw, 578px);
+        z-index: 0;
+        filter: drop-shadow(0 0 71px rgba(0,0,0,0.39));
+      }
+    }
+  }
+
+}
+
+
+.subscribe {
+  background-image: a.$img-subscribe;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-top: a.$padding-block-10;
+
+  .subscribe-title {
+    $font-size-title: clamp( 1rem, 5dvw, a.$font-size-100);
+    $font-spacing-tittle: clamp( 0.7rem, 2dvw, a.$font-spacing-20);
+    font-family: a.$font-semibold;
+    text-transform: uppercase;
+    font-size: $font-size-title;
+    letter-spacing: $font-spacing-tittle;
+    line-height: a.$font-line-height-27;
+    font-weight: a.$font-weight-600;
+    position: absolute;
+    transform: translateY(calc(-1 * clamp( 35px, 5.8dvw, a.$font-size-100)));
+    //positioning the title center
+    width: 100%;
+    text-align: center;
+
+    span {
+      font-family: a.$font-black;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .album-availbility {
+    h4 {
+      align-self: center;
+    }
+
+    p {
+      line-height: calc(1.5 * a.$font-line-height-27);
+      width: 12ch;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  .container-album {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .album .artist-img{
+      align-self: center;
+      padding-right: 0;
+
+      .artist-name {
+        width: 100%;
+        text-align: center;
+        transform: translateX(0);
+        color: a.$color-primary;
+      }
+    }
+  }
+
+
+}

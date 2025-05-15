@@ -1,0 +1,39 @@
+@use '../abstracts/' as a;
+
+.search-page {
+  display: none;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  label {
+    font-family: a.$font-semibold;
+    font-size: a.$font-size-30;
+    letter-spacing: a.$font-spacing-6;
+    line-height: a.$font-line-height-27;
+    color: a.$color-unactive;
+    font-weight: a.$font-weight-600;
+  }
+
+  input {
+    width: 355px;
+    height: 59px;
+    border: 0;
+    border-radius: a.$border-radius-04;
+    padding-inline: 1rem;
+  }
+}
+
+.search-result {
+  padding-block: a.$padding-block-100px;
+  text-align: center;
+  font-size: a.$font-size-30;
+  font-family: a.$font-semibold;
+  letter-spacing: a.$font-spacing-6;
+  line-height: a.$font-line-height-27;
+  font-weight: a.$font-weight-600;
+}

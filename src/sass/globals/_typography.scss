@@ -1,0 +1,22 @@
+@use '../abstracts/' as a;
+
+.section-title {
+  font-family: a.$font-semibold;
+  font-size: a.$font-size-60;
+  letter-spacing: a.$font-spacing-12;
+  line-height: a.$font-line-height-27;
+  font-weight: a.$font-weight-600;
+  color: a.$color-unactive;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-family: a.$font-semibold;
+  font-size: a.$font-size-30;
+  letter-spacing: a.$font-spacing-6;
+  line-height: a.$font-line-height-27;
+  font-weight: a.$font-weight-600;
+  text-align: center;
+  padding-block: a.$padding-block-100px;
+}

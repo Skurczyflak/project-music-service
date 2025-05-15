@@ -6,27 +6,38 @@ $font-bold: 'Source-Sans-Pro-Bold';
 $font-regular: 'Source-Sans-Pro-Regular';
 $font-semibold: 'Source-Sans-Pro-Semibold';
 
-//Header
-$font-size-title: 200px;
-$font-size-subtitle: 36px;
-$font-spacing-tittle: 120px;
-$font-spacing-subtittle: 11px;
+//font sizes
+$font-size-200: 200px;
+$font-size-100: 100px;
+$font-size-60: 60px;
+$font-size-40: 40px;
+$font-size-36: 36px;
+$font-size-30: 30px;
+$font-size-20: 20px;
 
-//Navigation
-$font-size-nav: 30px;
-$font-spacing-nav: 2px;
-$font-line-height-nav: 27px;
-$menu-links-spacing: 105px;
+//font spacing
+$font-spacing-120: 120px;
+$font-spacing-105: 105px;
+$font-spacing-20: 20px;
+$font-spacing-12: 12px;
+$font-spacing-11: 11px;
+$font-spacing-6: 6px;
+$font-spacing-8: 8px;
+$font-spacing-4: 4px;
+$font-spacing-2: 2px;
 
-//Footer
-$font-size-footer: 20px;
-$font-spacing-footer: 4px;
-
+//font line height
+$font-line-height-27: 27px;
 
 //Font weights
 $font-weight-900: 900;
 $font-weight-600: 600;
+$font-weight-700: 700;
 $font-weight-400: 400;
-//Main page variables
 
-$padding-block-global: 10rem;
+//Padding
+$padding-block-10: 10rem;
+$padding-block-100px: 100px;
+
+//Border
+$border-radius-04: 0.4rem;
