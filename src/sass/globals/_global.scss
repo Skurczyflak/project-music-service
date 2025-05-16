@@ -95,6 +95,10 @@ body {
       a:hover {
         color: a.$color-light;
       }
+
+      a.active {
+        color: a.$color-light;
+      }
     }
   }
 }
