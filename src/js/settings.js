@@ -5,16 +5,23 @@ export const select = {
     home: '.home-page',
     search: '.search-page',
     discover: '.discover-page',
+    songs: '.songs-wrapper',
   },
   all: {
     navActive: '.nav-links > li > a .active',
     pageActive: '.main-content > section > .active',
   },
   widgets: {
-    home: '.home-page > .songs-wrapper',
-    search: '.search-page > .songs-wrapper',
-    discover: '.discover-page > .songs-wrapper',
-  }
+    home: '#home > .songs-wrapper',
+    search: '#search > .songs-wrapper',
+    discover: '#discover > .songs-wrapper',
+    player: '.player',
+  },
+  search: {
+    input: '.search-page #search-input',
+    submit: '.search-page .btn-search',
+    result: '.search-page .search-result .search-count',
+  },
 };
 
 export const classNames = {
@@ -23,13 +30,11 @@ export const classNames = {
   },
   pages: {
     active: 'active',
-  },
+  }};
+export const settings = {
   db: {
     url: '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131' : ''),
-    products: 'products',
-    orders: 'orders',
-    bookings: 'bookings',
-    events: 'events',
+    songs: 'songs',
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',

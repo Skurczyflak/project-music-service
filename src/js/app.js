@@ -1,14 +1,6 @@
-//import GreenAudioPlayer from './vendor/green-audio-player';
-import { select, classNames } from './settings.js';
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   GreenAudioPlayer.init({
-//     selector: '.player',
-//     stopOthersOnPlay: true
-//   });
-// });
-
+import { select, classNames, settings } from './settings.js';
+import Song from './components/Song.js';
+import utils from './utils.js';
 const app = {
 
   initPages: function() {
@@ -58,8 +50,35 @@ const app = {
 
   },
 
+  initData: function(){
+    const thisApp = this;
+    thisApp.data = {};
+    const url = settings.db.url + '/' + settings.db.songs;
+
+    fetch(url)
+      .then(function(rawResponse){
+        return rawResponse.json();
+      })
+      .then(function(parsedResponse){
+        thisApp.data.songs = parsedResponse;
+        thisApp.initSongs();
+        utils.initPlayers(select.widgets.player);
+      })
+      .catch(function(){
+        console.log('Could not fetch data');
+      });
+
+  },
+  initSongs: function(){
+    const thisApp = this;
+    for(let song of thisApp.data.songs){
+      new Song(song.id, song);
+    }
+  },
+
   init: function() {
     const thisApp = this;
+    thisApp.initData();
     thisApp.initPages();
   },
 
