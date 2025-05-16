@@ -1,42 +1,30 @@
 import { select } from '../settings.js';
+import utils from '../utils.js';
 class Song {
-  constructor(id, data) {
+  constructor(id, data, wrapper) {
     const thisSong = this;
     thisSong.id = id;
     thisSong.data = data;
+    thisSong.wrapper = wrapper;
     thisSong.getElements();
-    thisSong.renderInHome();
+    thisSong.render(thisSong.wrapper);
   }
 
   getElements() {
     const thisSong = this;
     thisSong.dom = {};
     thisSong.dom.wrapper = document.querySelector(select.widgets.song);
-    thisSong.dom.homeWrapper = document.querySelector(select.widgets.home);
-
   }
 
   createSongHTML(song) {
 
-    //split filename to get the artist of the song
-    const artist = song.filename.split('_');
-    const artistName = artist[artist.length - 1].split('.')[0];
-    artist.pop();
-    artist.push(artistName);
+    const artist = utils.filenameToArrayWithArtist(song.filename);
     const title = song.title.split(' ');
-    artist.map((item, index) => artist[index] = item.toLowerCase());
-    title.map((item, index) => title[index] = item.toLowerCase());
-    for (let i = 0; i < title.length; i++) {
-      if (artist.includes(title[i])) {
-        artist.splice(artist.indexOf(title[i]), 1);
-      }
-    }
-    artist.map((item, index) => {
-      if (item.includes('-') || item.includes(' ') || item.includes('.')) {
-        artist.splice(index, 1);
-      }
-    });
-    song.artist = artist.join(' ');
+    utils.toLowerCase(artist);
+    utils.toLowerCase(title);
+    const noTitle = utils.filterArrays(artist, title);
+  
+    song.artist = utils.filterFileTag(noTitle).join(' ');
 
     return `<div class="player-wrapper">
                 <h4>${song.artist} - ${song.title}</h4>
@@ -58,10 +46,5 @@ class Song {
     wrapper.insertAdjacentHTML('beforeend', thisSong.createSongHTML(thisSong.data));
   }
 
-  renderInHome() {
-    const thisSong = this;
-    thisSong.render(thisSong.dom.homeWrapper);
-  }
-    
 }
 export default Song;

@@ -15,17 +15,24 @@ export const select = {
     home: '#home > .songs-wrapper',
     search: '#search > .songs-wrapper',
     discover: '#discover > .songs-wrapper',
-    player: '.player',
+    homePlayer: '#home > .songs-wrapper >.player-wrapper > .player',
+    discoverPlayer: '#discover > .songs-wrapper >.player-wrapper > .player',
+    searchPlayer: '#search > .songs-wrapper >.player-wrapper > .player',
   },
   search: {
     input: '.search-page #search-input',
     submit: '.search-page .btn-search',
-    result: '.search-page .search-result .search-count',
+    result: '.search-page .search-result',
+    count: '.search-page .search-result .search-count',
+    form: '.search-page .search-container',
   },
 };
 
 export const classNames = {
   nav: {
+    active: 'active',
+  },
+  search: {
     active: 'active',
   },
   pages: {

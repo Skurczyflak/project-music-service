@@ -1,6 +1,7 @@
-import { select, classNames, settings } from './settings.js';
-import Song from './components/Song.js';
-import utils from './utils.js';
+import { select, classNames } from './settings.js';
+import Home from './components/Home.js';
+import Discover from './components/Discover.js';
+import Search from './components/Search.js';
 const app = {
 
   initPages: function() {
@@ -50,35 +51,24 @@ const app = {
 
   },
 
-  initData: function(){
-    const thisApp = this;
-    thisApp.data = {};
-    const url = settings.db.url + '/' + settings.db.songs;
-
-    fetch(url)
-      .then(function(rawResponse){
-        return rawResponse.json();
-      })
-      .then(function(parsedResponse){
-        thisApp.data.songs = parsedResponse;
-        thisApp.initSongs();
-        utils.initPlayers(select.widgets.player);
-      })
-      .catch(function(){
-        console.log('Could not fetch data');
-      });
-
+  initHomePage: function() {
+    new Home();
   },
-  initSongs: function(){
-    const thisApp = this;
-    for(let song of thisApp.data.songs){
-      new Song(song.id, song);
-    }
+
+  initDiscoverPage: function() {
+    new Discover();
+  },
+
+  initSearchPage: function() {
+    //event listener
+    new Search();
   },
 
   init: function() {
     const thisApp = this;
-    thisApp.initData();
+    thisApp.initDiscoverPage();
+    thisApp.initHomePage();
+    thisApp.initSearchPage();
     thisApp.initPages();
   },
 

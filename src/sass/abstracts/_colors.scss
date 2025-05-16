@@ -1,6 +1,8 @@
 //colors
 
-$color-primary: #cf383e;
+// $color-primary: #cf383e; is used in green-audio-player 
+$color-primary: var(--player-color);
+
 $color-light: #fff;
 $color-unactive: #bfbfbf;
 $color-dark: #131313;

@@ -1,3 +1,8 @@
+:root {
+  --player-width: clamp( 300px, 50dvw ,560px);
+  --player-color: #cf383e;
+}
+
 @keyframes spin {
   from {
     transform: rotateZ(0); }
@@ -5,7 +10,7 @@
     transform: rotateZ(1turn); } }
 
 .green-audio-player {
-  width: clamp( 350px, 50dvw ,560px);
+  width: var(--player-width);
   height: 72px;
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.07);
   display: flex !important;
@@ -51,7 +56,7 @@
     cursor: pointer;
     position: relative; }
     .green-audio-player .slider .gap-progress {
-      background-color: #cf383e;
+      background-color: var(--player-color);
       border-radius: inherit;
       position: absolute;
       pointer-events: none; }
@@ -59,7 +64,7 @@
         height: 16px;
         width: 16px;
         border-radius: 8px;
-        background-color: #cf383e;
+        background-color: var(--player-color);
         position: absolute;
         pointer-events: all;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.32); }
@@ -107,7 +112,7 @@
       .green-audio-player .volume .volume__button:focus {
         outline: none; }
       .green-audio-player .volume .volume__button.open path {
-        fill: #cf383e; }
+        fill: var(--player-color); }
     .green-audio-player .volume .volume__controls {
       width: 30px;
       height: 135px;

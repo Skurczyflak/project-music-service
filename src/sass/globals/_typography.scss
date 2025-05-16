@@ -1,8 +1,9 @@
 @use '../abstracts/' as a;
 
 .section-title {
+  
   font-family: a.$font-semibold;
-  font-size: a.$font-size-60;
+  font-size: clamp( 2rem, 10dvw, a.$font-size-60);
   letter-spacing: a.$font-spacing-12;
   line-height: a.$font-line-height-27;
   font-weight: a.$font-weight-600;
