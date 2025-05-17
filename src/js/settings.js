@@ -26,6 +26,9 @@ export const select = {
     count: '.search-page .search-result .search-count',
     form: '.search-page .search-container',
   },
+  home: {
+    subscribeBtn: '.home-page .btn-subscribe',
+  },
 };
 
 export const classNames = {
@@ -35,6 +38,21 @@ export const classNames = {
   search: {
     active: 'active',
   },
+  toUpercase: [
+    '.section-title',
+    '.section-subtitle',
+    '.wrapper-text h1',
+    '.wrapper-text h2',
+    '.subscribe .subscribe-title',
+    '.btn-subscribe',
+    '.artist-name .first-name',
+    '.artist-name .last-name', 
+    '.search-container label',
+    '.search-container .btn-search',
+  ],
+  listToUpercase:[ 
+    '.nav-links li a',
+  ],
   pages: {
     active: 'active',
   }};

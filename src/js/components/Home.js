@@ -14,7 +14,6 @@ class Home {
     const thisHome = this;
     thisHome.dom = {};
     thisHome.dom.wrapper = document.querySelector(select.widgets.home);
-    thisHome.dom.songsWrapper = document.querySelector(select.widgets.home);
   }
 
   getData(){
@@ -39,7 +38,7 @@ class Home {
   initSongs() {
     const thisHome = this;
     for(let song of thisHome.data.songs){
-      new Song(song.id, song, thisHome.dom.songsWrapper);
+      new Song(song.id, song, thisHome.dom.wrapper);
     }
   }
 

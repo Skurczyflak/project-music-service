@@ -23,6 +23,34 @@ utils.toLowerCase = function (array) {
   return array.map((item, index) => array[index] = item.toLowerCase());
 };
 
+utils.oneToUpercase = function (array){
+  for (const className of array){
+    const wrapper = document.querySelector(className);
+    wrapper.style.textTransform = 'uppercase';
+  }
+};
+
+utils.nameCapitalize = function (str){
+  const array = str.split(' ');
+  const name = [];
+
+  for(const i in array){
+    name.push(array[i].charAt(0).toUpperCase() + array[i].slice(1)); 
+  }
+  return name.join(' ');
+};
+
+utils.listToUpercase = function (array){
+  for (const classNames of array){
+    const wrapper = document.querySelectorAll(classNames);
+    [].forEach.call(wrapper, function(div) {
+      // do whatever
+      div.style.textTransform = 'uppercase';
+    });
+
+  }
+};
+
 utils.filterArrays = function (arrayA, arrayB) {
   return arrayA.filter(item => !arrayB.includes(item));
 };

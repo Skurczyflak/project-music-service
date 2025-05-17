@@ -23,8 +23,8 @@ class Song {
     utils.toLowerCase(artist);
     utils.toLowerCase(title);
     const noTitle = utils.filterArrays(artist, title);
-  
     song.artist = utils.filterFileTag(noTitle).join(' ');
+    song.artist = utils.nameCapitalize(song.artist);
 
     return `<div class="player-wrapper">
                 <h4>${song.artist} - ${song.title}</h4>
@@ -34,7 +34,7 @@ class Song {
                     </audio>
                 </div>
                 <div class="song-info">
-                    <p>categories: ${song.categories}</p>
+                    <p>Categories: ${song.categories}</p>
                     <p>#${song.ranking} in the ranking</p>
                 </div>
             </div>

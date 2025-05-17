@@ -17,7 +17,6 @@ class Search {
     thisSearch.dom.wrapper = document.querySelector(select.widgets.search);
     thisSearch.dom.form = document.querySelector(select.search.form);
     thisSearch.dom.input = document.querySelector(select.search.input);
-    thisSearch.dom.submit = document.querySelector(select.search.submit);
     thisSearch.dom.result = document.querySelector(select.search.result);
     thisSearch.dom.count = document.querySelector(select.search.count);
   }

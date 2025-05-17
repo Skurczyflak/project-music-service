@@ -12,6 +12,17 @@
   bottom: 20px;
   transform: translateX(-29ch);
 
+  .first-name {
+    margin-left: -1.35ch;
+    margin-bottom: 0;
+  }
+
+  .last-name {
+    margin-top: 5rem;
+    margin-bottom: 7.4rem;
+    margin-left: 0.13ch;
+  }
+
   .first-name,
   .last-name {
     font-size: clamp( 3rem, 5dvw, a.$font-size-100);
@@ -39,12 +50,14 @@
 
   h4 {
     margin-bottom: 0;
+    margin-top: 2.7rem;
+    margin-right: -1.77ch;
     font-family: a.$font-bold;
-    text-transform: uppercase;
     color: a.$color-unactive;
   }
 
   p {
+    margin-top: 1.8rem;
     align-self: center;
     font-family: a.$font-semibold;
   }
@@ -62,11 +75,12 @@
   .album {
     display: flex;
     flex-direction: column;
+    margin-top: 4.15rem;
+    margin-left: 1.7ch;
 
     .artist-img {
       position: relative;
       align-self: end;
-      padding-right: 4.5ch;
 
       img {
         width: clamp( 300px, 30dvw, 465px);
@@ -85,19 +99,19 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  margin-top: a.$padding-block-10;
+  margin-top: a.$margin-top-7_38rem;
 
   .subscribe-title {
     $font-size-title: clamp( 1rem, 5dvw, a.$font-size-100);
     $font-spacing-tittle: clamp( 0.7rem, 2dvw, a.$font-spacing-20);
     font-family: a.$font-semibold;
-    text-transform: uppercase;
+    
     font-size: $font-size-title;
     letter-spacing: $font-spacing-tittle;
     line-height: a.$font-line-height-27;
     font-weight: a.$font-weight-600;
     position: absolute;
-    transform: translateY(calc(-1 * clamp( 35px, 5.8dvw, a.$font-size-100)));
+    transform: translateY(calc(-1 * clamp( 35px, 5.8dvw, a.$font-size-100)/1.05));
     //positioning the title center
     width: 100%;
     text-align: center;
@@ -112,21 +126,35 @@
   .album-availbility {
     h4 {
       align-self: center;
+      margin-inline: 0;
     }
 
     p {
       line-height: calc(1.5 * a.$font-line-height-27);
-      width: 12ch;
       display: flex;
       flex-direction: column;
       text-align: center;
     }
   }
 
+  .artist-name .first-name {
+    margin: 0;
+  }
+
+  .btn-subscribe {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
   .container-album {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 5rem;
+
+    .album {
+      margin: 0;
+    }
 
     .album .artist-img{
       align-self: center;

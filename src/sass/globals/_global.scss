@@ -26,9 +26,8 @@ body {
     //Variables for responsivity
     $font-size-title: clamp( 3rem, 10dvw, a.$font-size-200);
     $font-size-subtitle: clamp( 0.8rem, 5dvw, a.$font-size-36);
-    $font-spacing-title: clamp( 0.7rem, 10dvw, a.$font-spacing-120);
+    $font-spacing-title: clamp( 0.7rem, 10dvw, a.$font-spacing-124);
     $font-spacing-subtittle: clamp( 0.7rem, 10dvw, a.$font-spacing-11);
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,11 +39,12 @@ body {
       font-size: $font-size-title;
       font-weight: a.$font-weight-900;
       letter-spacing: $font-spacing-title;
-      text-transform: uppercase;
+      
       filter: drop-shadow(0 0 71px a.$color-dropshadow);
       //counteracting to the last letter spacing
       text-align: right;
-      margin-right: calc(-1 * $font-spacing-title);
+      margin-right: calc(-1 * $font-spacing-title / 1.55);
+      margin-bottom: 0;
     }
 
     h2 {
@@ -52,10 +52,11 @@ body {
       font-size: $font-size-subtitle;
       font-weight: a.$font-weight-900;
       letter-spacing: $font-spacing-subtittle;
-      text-transform: uppercase;
       line-height: 72px;
+      margin-top: 0.5rem;
+      margin-bottom: 6rem;
       //counteracting to the last letter spacing
-      margin-right: calc(-1 * $font-spacing-subtittle);
+      margin-right: calc($font-spacing-subtittle * 3);
 
       span { 
         display: block;
@@ -68,19 +69,23 @@ body {
 
 .navigation-wrapper {
   $font-size-nav: clamp( 1rem, 5dvw, a.$font-size-30);
-  padding-block: a.$padding-block-10;
+  padding-top: a.$padding-top-3_5rem;
+  padding-bottom: a.$padding-bottom-4_25rem;
   display: flex;
-  align-items: center;
   justify-content: center;
+  text-align: left;
 
   .nav-links {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: clamp(1rem, 5dvw, a.$font-spacing-105);
+    //gap: clamp(1rem, 5dvw, a.$font-spacing-105);
 
     li{
+      width: clamp( 70px, 10dvw, 180px);
+      margin-inline: 1.14rem;
+
       a {
         text-decoration: none;
         color: a.$color-unactive;
@@ -88,7 +93,7 @@ body {
         font-size: $font-size-nav;
         letter-spacing: a.$font-spacing-2;
         line-height: a.$font-line-height-27;
-        text-transform: uppercase;
+        
         font-weight: a.$font-weight-600;
       }
 
@@ -112,7 +117,11 @@ body {
   line-height: a.$font-line-height-27;
   font-weight: a.$font-weight-400;
   text-align: center;
-  padding-block: a.$padding-block-10;
+  padding-block: 0.8rem;
+
+  p {
+    margin-top: 1.5rem;
+  }
 }
 
 //player
@@ -131,8 +140,13 @@ body {
     font-size: clamp(1rem, 5dvw,a.$font-size-30);
     letter-spacing: a.$font-spacing-2;
     line-height: a.$font-line-height-27;
-    text-transform: uppercase;
+    
     font-weight: a.$font-weight-600;
+    margin-bottom: 3.75rem;
+  }
+
+  .player {
+    margin-bottom: 0.3rem;
   }
 
   .song-info {
@@ -147,7 +161,8 @@ body {
     line-height: a.$font-line-height-27;
     font-weight: a.$font-weight-400;
     color: a.$color-unactive;
-    
+    margin-bottom: 0.8rem;
+
     p:last-child {
       text-align: right;
     }
@@ -163,4 +178,17 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation-wrapper{
+    text-align: center;
+
+    .nav-links{
+      li{
+        width: 100%;
+      }
+    }
+  }
+
 }
