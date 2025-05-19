@@ -83,7 +83,7 @@
       align-self: end;
 
       img {
-        width: clamp( 300px, 30dvw, 465px);
+        width: clamp(300px, 30dvw, 465px);
         height: clamp(100%, 30dvw, 578px);
         z-index: 0;
         filter: drop-shadow(0 0 71px rgba(0,0,0,0.39));
@@ -100,6 +100,7 @@
   background-position: center;
   position: relative;
   margin-top: a.$margin-top-7_38rem;
+  display: grid;
 
   .subscribe-title {
     $font-size-title: clamp( 1rem, 5dvw, a.$font-size-100);

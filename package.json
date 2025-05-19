@@ -12,7 +12,7 @@
         "init:db": "echo {} >> src/db/app.json",
         "test": "npm-run-all test:*",
         "test:html": "html-validate src/*.html",
-        "test-dontuse": "eslint --fix src/js/",
+        "test-dontUseWithAsyncFunctions": "eslint --fix src/js/",
         "test:scss": "stylelint --fix src/sass/",
         "server": "json-server --port 3131 --no-cors --delay 250 --watch dist/db/app.json --brotli",
         "build": "npm-run-all build:* test",

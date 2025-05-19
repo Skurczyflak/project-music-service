@@ -24,10 +24,13 @@ utils.toLowerCase = function (array) {
 };
 
 utils.oneToUpercase = function (array){
-  for (const className of array){
-    const wrapper = document.querySelector(className);
-    wrapper.style.textTransform = 'uppercase';
-  }
+  const doc = document;
+  array.forEach((className) => {
+    const wrapper = doc.querySelector(className);
+
+    wrapper.classList.add('uppercase');
+
+  });
 };
 
 utils.nameCapitalize = function (str){
@@ -41,14 +44,15 @@ utils.nameCapitalize = function (str){
 };
 
 utils.listToUpercase = function (array){
-  for (const classNames of array){
-    const wrapper = document.querySelectorAll(classNames);
-    [].forEach.call(wrapper, function(div) {
-      // do whatever
-      div.style.textTransform = 'uppercase';
-    });
+  const doc = document;
+  array.forEach((classNames) => {
+    const wrappers = doc.querySelectorAll(classNames);
+    wrappers.forEach((wrapper) => {
 
-  }
+      wrapper.classList.add('uppercase');
+
+    });
+  });
 };
 
 utils.filterArrays = function (arrayA, arrayB) {

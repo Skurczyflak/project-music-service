@@ -10,6 +10,11 @@
 body {
   background-color: a.$color-dark;
   color: a.$color-light;
+
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 // Header 
@@ -44,6 +49,10 @@ body {
   //counteracting to the last letter spacing
   margin-right: calc($font-spacing-subtittle * 3);
 
+  &.upercase {
+    text-transform: uppercase;
+  }
+
   span { 
     display: block;
   }
@@ -56,6 +65,8 @@ body {
   background-origin: border-box;
   background-repeat: no-repeat;
   background-size: cover;
+  display: grid;
+  
 }
 
 .wrapper-text {

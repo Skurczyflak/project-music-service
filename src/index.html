@@ -6,31 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taste</title>
     <link rel="stylesheet" type="text/css" href="vendor/green-audio-player.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link fetchpriority="high" rel="preload" href="images/background.avif" as="image" crossorigin>
     <link rel="preload" href="fonts/SourceSansPro-Black.ttf" as="font" crossorigin>
 </head>
 <body>
-    <header class="header-main">
+    <header class="header-main" aria-labelledby="main-title">
         <div class="container-big">
             <div class="wrapper-text">
-                <h1 class="main-title">Taste</h1>
-            <h2 class="main-subtitle">Engage <span>in</span> art</h2>
-        </div>
+                <h1 class="main-title" id="main-title">Taste</h1>
+                <h2 class="main-subtitle">Engage <span>in</span> art</h2>
+            </div>
         </div>
     </header>
-        <nav class="navigation-wrapper">
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#search">Search</a></li>
-                    <li><a href="#discover">Discover</a></li>
-                </ul>
-        </nav>
+    <nav class="navigation-wrapper" aria-label="Navigation">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#search">Search</a></li>
+                <li><a href="#discover">Discover</a></li>
+            </ul>
+    </nav>
     <main class="main-content">
-        <section id="home" class="home-page">
-            <div class="songs-wrapper"></div>
-            <section class="subscribe">
-                <h2 class="subscribe-title">Subscribe <span>now</span></h2>
+        <section id="home" class="home-page" aria-label="Home">
+            <section class="songs-wrapper" aria-label="Players"></section>
+            <section class="subscribe" aria-labelledby="subscribe-title">
+                <h2 class="subscribe-title" id="subscribe-title">Subscribe <span>now</span></h2>
                 <div class="container-album">
                     <button type="button" href="#join-now" class="btn btn-subscribe">Join now</button>
                     <div class="album">
@@ -54,21 +54,21 @@
                 </div>
             </section>
         </section>
-        <section id="search" class="search-page">
-            <h2 class="section-title">Search</h2>
+        <section id="search" class="search-page" aria-labelledby="search-title">
+            <h2 class="section-title" id="search-title">Search</h2>
             <form class="search-container">
                 <label for="search-input">Name</label>
                 <input type="text" placeholder="Search" id="search-input">
                 <button type="submit" class="btn btn-search">Search</button>
             </form>
             <h3 class="search-result">We have found <span class="search-count"></span> songs...</h3>
-            <div class="songs-wrapper"></div>
+            <section class="songs-wrapper" aria-label="Players"></section>
         </section>
-        <section id="discover" class="discover-page">
-            <h2 class="section-title">Discover</h2>
+        <section id="discover" class="discover-page" aria-labelledby="discover-title">
+            <h2 class="section-title" id="discover-title">Discover</h2>
             <p class="section-subtitle">Give it a try!</p>
-            <div class="songs-wrapper">
-            </div>
+            <section class="songs-wrapper" aria-label="Players">
+            </section>
         </section>
     </main>
     <footer class="footer-main">

@@ -85,7 +85,6 @@ const app = {
 
   init: async function() {
     const thisApp = this;
-
     thisApp.toUppercase();
     thisApp.initGetData();
     try {
