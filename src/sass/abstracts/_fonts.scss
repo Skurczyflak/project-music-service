@@ -6,19 +6,23 @@
 @font-face {
   font-family: v.$font-black;
   src: l.$font-link-black format('woff2');
+  font-display: swap;
 }
 
 @font-face {
   font-family: v.$font-bold;
   src: l.$font-link-bold format('woff2');
+  font-display: swap;
 }
 
 @font-face {
   font-family: v.$font-regular;
   src: l.$font-link-regular format('woff2');
+  font-display: swap;
 }
 
 @font-face {
   font-family: v.$font-semibold;
   src: l.$font-link-semibold format('woff2');
+  font-display: swap;
 }

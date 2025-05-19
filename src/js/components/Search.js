@@ -1,13 +1,13 @@
-import { select, settings, classNames } from '../settings.js';
+import { select, classNames } from '../settings.js';
 import utils from '../utils.js';
 import Song from './Song.js';
 
 class Search {
 
-  constructor() {
+  constructor(data) {
     const thisSearch = this;
+    thisSearch.data = data;
     thisSearch.getElements();
-    thisSearch.getData();
     thisSearch.initSearch();
   }
 
@@ -19,23 +19,6 @@ class Search {
     thisSearch.dom.input = document.querySelector(select.search.input);
     thisSearch.dom.result = document.querySelector(select.search.result);
     thisSearch.dom.count = document.querySelector(select.search.count);
-  }
-
-  getData() {
-    const thisSearch = this;
-    thisSearch.data = [];
-    const url = settings.db.url + '/' + settings.db.songs;
-
-    fetch(url)
-      .then(function(rawResponse) {
-        return rawResponse.json();
-      })
-      .then(function(parsedResponse) {
-        thisSearch.data = parsedResponse;
-      })
-      .catch(function() {
-        console.log('Could not fetch data');
-      });
   }
 
   initSearch() {
@@ -57,8 +40,8 @@ class Search {
   search(searchTerm) {
     const thisSearch = this;
     const searchResult = [];
-    console.log(searchTerm);
-    console.log(thisSearch.data);
+    //console.log(searchTerm);
+    //console.log(thisSearch.data);
 
     function cleanSearchTerm(searchTerm) {
       const lowerCaseSearchTerm = searchTerm.toLowerCase();

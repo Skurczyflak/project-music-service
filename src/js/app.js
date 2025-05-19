@@ -2,6 +2,7 @@ import { select, classNames } from './settings.js';
 import Home from './components/Home.js';
 import Discover from './components/Discover.js';
 import Search from './components/Search.js';
+import GetData from './components/GetData.js';
 import utils from './utils.js';
 const app = {
 
@@ -55,16 +56,24 @@ const app = {
 
   },
 
-  initHomePage: function() {
-    new Home();
+  initHomePage: function(data) {
+    const thisApp = this;
+    thisApp.home = new Home(data);
   },
 
-  initDiscoverPage: function() {
-    new Discover();
+  initDiscoverPage: function(data) {
+    const thisApp = this;
+    thisApp.discover = new Discover(data);
   },
 
-  initSearchPage: function() {
-    new Search();
+  initSearchPage: function(data) {
+    const thisApp = this;
+    thisApp.search = new Search(data);
+  },
+
+  initGetData: function() {
+    const thisApp = this;
+    thisApp.data = new GetData();
   },
 
   toUppercase: function(){
@@ -74,12 +83,21 @@ const app = {
     utils.listToUpercase(listToUpercase);
   },
 
-  init: function() {
+  init: async function() {
     const thisApp = this;
+
     thisApp.toUppercase();
-    thisApp.initDiscoverPage();
-    thisApp.initHomePage();
-    thisApp.initSearchPage();
+    thisApp.initGetData();
+    try {
+      const data = await this.data.getData();
+      //console.log(data);
+      thisApp.initDiscoverPage(data);
+      thisApp.initHomePage(data);
+      thisApp.initSearchPage(data);
+
+    } catch (error) {
+      console.error('Error initializing app:', error);
+    }
     thisApp.initPages();
   },
 

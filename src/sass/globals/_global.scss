@@ -14,6 +14,41 @@ body {
 
 // Header 
 
+.main-title {
+  $font-size-title: clamp( 3rem, 10dvw, a.$font-size-200);
+  $font-spacing-title: clamp( 0.7rem, 10dvw, a.$font-spacing-124);
+  font-family: a.$font-black;
+  font-size: $font-size-title;
+  font-weight: a.$font-weight-900;
+  letter-spacing: $font-spacing-title;
+  display: block;
+  opacity: 1;
+  
+  filter: drop-shadow(0 0 71px a.$color-dropshadow);
+  //counteracting to the last letter spacing
+  text-align: right;
+  margin-right: calc(-1 * $font-spacing-title / 1.55);
+  margin-bottom: 0;
+}
+
+.main-subtitle {
+  $font-spacing-subtittle: clamp( 0.7rem, 10dvw, a.$font-spacing-11);
+  $font-size-subtitle: clamp( 0.8rem, 5dvw, a.$font-size-36);
+  font-family: a.$font-black;
+  font-size: $font-size-subtitle;
+  font-weight: a.$font-weight-900;
+  letter-spacing: $font-spacing-subtittle;
+  line-height: 72px;
+  margin-top: 0.5rem;
+  margin-bottom: 6rem;
+  //counteracting to the last letter spacing
+  margin-right: calc($font-spacing-subtittle * 3);
+
+  span { 
+    display: block;
+  }
+}
+
 .header-main {
   background-image: a.$gradient-background,
     a.$img-background;
@@ -21,48 +56,14 @@ body {
   background-origin: border-box;
   background-repeat: no-repeat;
   background-size: cover;
+}
 
-  .wrapper-text {
-    //Variables for responsivity
-    $font-size-title: clamp( 3rem, 10dvw, a.$font-size-200);
-    $font-size-subtitle: clamp( 0.8rem, 5dvw, a.$font-size-36);
-    $font-spacing-title: clamp( 0.7rem, 10dvw, a.$font-spacing-124);
-    $font-spacing-subtittle: clamp( 0.7rem, 10dvw, a.$font-spacing-11);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    h1 {
-      font-family: a.$font-black;
-      font-size: $font-size-title;
-      font-weight: a.$font-weight-900;
-      letter-spacing: $font-spacing-title;
-      
-      filter: drop-shadow(0 0 71px a.$color-dropshadow);
-      //counteracting to the last letter spacing
-      text-align: right;
-      margin-right: calc(-1 * $font-spacing-title / 1.55);
-      margin-bottom: 0;
-    }
-
-    h2 {
-      font-family: a.$font-black;
-      font-size: $font-size-subtitle;
-      font-weight: a.$font-weight-900;
-      letter-spacing: $font-spacing-subtittle;
-      line-height: 72px;
-      margin-top: 0.5rem;
-      margin-bottom: 6rem;
-      //counteracting to the last letter spacing
-      margin-right: calc($font-spacing-subtittle * 3);
-
-      span { 
-        display: block;
-      }
-    }
-  }
+.wrapper-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 //navigation
@@ -133,7 +134,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  h4 {
+  h3 {
     text-align: center;
     align-self: center;
     font-family: a.$font-semibold;

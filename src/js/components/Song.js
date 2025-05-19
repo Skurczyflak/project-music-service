@@ -27,7 +27,7 @@ class Song {
     song.artist = utils.nameCapitalize(song.artist);
 
     return `<div class="player-wrapper">
-                <h4>${song.artist} - ${song.title}</h4>
+                <h3>${song.artist} - ${song.title}</h3>
                 <div class="ready-player-${song.id} player" data-id="${song.id}">
                     <audio crossorigin>
                         <source src="songs/${song.filename}" type="audio/mp3">
