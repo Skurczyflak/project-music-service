@@ -38,3 +38,10 @@
   font-weight: a.$font-weight-600;
   font-family: a.$font-semibold;
 }
+
+@media screen and (max-width: 600px) {
+  .container-big {
+    height: 100dvh;
+  }
+  
+}
