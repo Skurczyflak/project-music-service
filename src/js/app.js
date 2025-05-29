@@ -5,7 +5,7 @@ import Search from './components/Search.js';
 import GetData from './components/GetData.js';
 import utils from './utils.js';
 const app = {
-
+  playedSongs: {},
   initPages: function() {
     const thisApp = this;
 
@@ -40,6 +40,14 @@ const app = {
 
   },
 
+  initPlayedSongs: function(data){
+    const thisApp = this;
+    const maxSongs = data.length;
+    for(let i = 0; i < maxSongs; i++){
+      thisApp.playedSongs[data[i].id] = 0;
+    }
+  },
+
   activatePage: function(pageId){
     const thisApp = this;
 
@@ -61,9 +69,9 @@ const app = {
     thisApp.home = new Home(data);
   },
 
-  initDiscoverPage: function(data) {
+  initDiscoverPage: function(data, played) {
     const thisApp = this;
-    thisApp.discover = new Discover(data);
+    thisApp.discover = new Discover(data, played);
   },
 
   initSearchPage: function(data) {
@@ -90,14 +98,14 @@ const app = {
     try {
       const data = await this.data.getData();
       //console.log(data);
-      thisApp.initDiscoverPage(data);
       thisApp.initHomePage(data);
       thisApp.initSearchPage(data);
-
+      thisApp.initPlayedSongs(data);
     } catch (error) {
       console.error('Error initializing app:', error);
     }
     thisApp.initPages();
+    thisApp.initDiscoverPage(thisApp.data.songs, thisApp.playedSongs);
   },
 
 };

@@ -5,6 +5,35 @@
   display: none;
 }
 
+.categories-wrapper {
+  justify-self: center;
+  width: a.$player-width;
+  font-family: a.$font-semibold;
+  font-weight: a.$font-weight-400;
+  display: flex;
+
+  p {
+    margin: 0;
+    padding-right: 0.8rem;
+    display: flex;
+
+    a{
+      padding: 0;
+      margin: 0;
+      color: a.$color-light;
+      text-decoration: none;
+
+      &:hover{
+        color: a.$color-primary;
+      }
+
+      &.active{
+        color: a.$color-primary;
+      }
+    }
+  }
+}
+
 
 .artist-name {
   z-index: 1;

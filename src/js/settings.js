@@ -10,11 +10,13 @@ export const select = {
   all: {
     navActive: '.nav-links > li > a .active',
     pageActive: '.main-content > section > .active',
+    discover: '#discover-nav-link',
   },
   widgets: {
     home: '#home > .songs-wrapper',
     search: '#search > .songs-wrapper',
     discover: '#discover > .songs-wrapper',
+    homeWrapper: '#home > .songs-wrapper > .player-wrapper',
     homePlayer: '#home > .songs-wrapper >.player-wrapper > .player',
     discoverPlayer: '#discover > .songs-wrapper >.player-wrapper > .player',
     searchPlayer: '#search > .songs-wrapper >.player-wrapper > .player',
@@ -25,8 +27,10 @@ export const select = {
     result: '.search-page .search-result',
     count: '.search-page .search-result .search-count',
     form: '.search-page .search-container',
+    categories: '.search-page .search-options select',
   },
   home: {
+    categories: '.home-page .categories-wrapper',
     subscribeBtn: '.home-page .btn-subscribe',
   },
 };
@@ -47,14 +51,17 @@ export const classNames = {
     '.btn-subscribe',
     '.artist-name .first-name',
     '.artist-name .last-name', 
-    '.search-container label',
     '.search-container .btn-search',
   ],
   listToUpercase:[ 
     '.nav-links li a',
+    '.search-container .search-options label',
   ],
   pages: {
     active: 'active',
+  },
+  player: {
+    hidden: 'hidden',
   }};
 export const settings = {
   db: {

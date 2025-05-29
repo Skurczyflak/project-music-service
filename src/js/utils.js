@@ -68,4 +68,13 @@ utils.filterFileTag = function (array) {
   return array;
 };
 
+utils.generateCategoriesHTML = function (array) {
+  let html ='';
+  for(let category of array){
+    html += `, <span id="#${category}">${category}</span>`;
+  }
+  let newHtml = html.slice(1);
+  return newHtml;
+};
+
 export default utils;

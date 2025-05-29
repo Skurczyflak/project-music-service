@@ -12,25 +12,42 @@ $input-width: clamp( 250px, 50dvw ,355px);
 
 .search-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  label {
-    font-family: a.$font-semibold;
-    font-size: a.$font-size-30;
-    letter-spacing: a.$font-spacing-6;
-    line-height: a.$font-line-height-27;
-    color: a.$color-unactive;
-    font-weight: a.$font-weight-600;
-    margin-right: 2rem;
-  }
+  .search-options {
+    margin-bottom: 4rem;
 
-  input {
-    width: $input-width;
-    height: 59px;
-    border: 0;
-    border-radius: a.$border-radius-04;
-    margin-right: 2rem;
+    label {
+      font-family: a.$font-semibold;
+      font-size: a.$font-size-30;
+      letter-spacing: a.$font-spacing-6;
+      line-height: a.$font-line-height-27;
+      color: a.$color-unactive;
+      font-weight: a.$font-weight-600;
+      margin-right: 2rem;
+    }
+
+    select {
+      appearance: none;
+      width: calc($input-width + 2rem);
+    }
+
+    input{
+      width: $input-width;
+    }
+
+    input,
+    select {
+
+      height: 59px;
+      border: 0;
+      border-radius: a.$border-radius-04;
+      margin-right: 2rem;
+      padding-inline: 1rem;
+    }
+
   }
 }
 
@@ -48,18 +65,22 @@ $input-width: clamp( 250px, 50dvw ,355px);
 
 @media screen and (max-width: 1200px) {
   .search-container {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    .search-options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
 
-    label {
-      margin: 0;
-    }
+      label {
+        margin: 0;
+      }
 
-    input {
-      margin: 0;
-      padding-inline: 1rem;
+      input,
+      select {
+        margin: 0;
+        margin-right: 0;
+      }
     }
 
     .btn-search {

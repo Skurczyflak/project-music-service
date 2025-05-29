@@ -138,6 +138,10 @@ body {
 
 //player
 
+.player-wrapper.hidden {
+  display: none;
+}
+
 .player-wrapper {
   width: 100%;
   display: flex;
@@ -182,7 +186,7 @@ body {
 }
 
 .main-content .active {
-  display: block;
+  display: grid;
 }
 
 .songs-wrapper {

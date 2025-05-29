@@ -8,6 +8,8 @@ class Search {
     const thisSearch = this;
     thisSearch.data = data;
     thisSearch.getElements();
+    thisSearch.getCategoris(data);
+    thisSearch.initCategories();
     thisSearch.initSearch();
   }
 
@@ -19,6 +21,7 @@ class Search {
     thisSearch.dom.input = document.querySelector(select.search.input);
     thisSearch.dom.result = document.querySelector(select.search.result);
     thisSearch.dom.count = document.querySelector(select.search.count);
+    thisSearch.dom.categories = document.querySelector(select.search.categories);
   }
 
   initSearch() {
@@ -27,22 +30,46 @@ class Search {
       event.preventDefault();
       //clear previous results
       thisSearch.dom.wrapper.innerHTML = '';
-      thisSearch.search(thisSearch.dom.input.value);
+      thisSearch.search(thisSearch.dom.input.value, thisSearch.dom.categories.value);
 
       if (thisSearch.dom.input.value !== '') {
         thisSearch.dom.result.classList.add(classNames.search.active);
-      }else {
+      }else if (thisSearch.dom.input.value === '' && thisSearch.dom.categories.value !== 'all') {
+        thisSearch.dom.result.classList.add(classNames.search.active);
+      }else if (thisSearch.dom.input.value === '') {
         thisSearch.dom.result.classList.remove(classNames.search.active);
       }
     });
   }
 
-  search(searchTerm) {
+  getCategoris(data) {
+      const thisSearch = this;
+      let categories = [];
+      for (let i of data) {
+        for (let j of i.categories) {
+          if (categories.indexOf(j) == -1) {
+            categories.push(j);
+          }
+        }
+      }
+      thisSearch.categories = categories;
+    }
+
+  initCategories() {
+    const thisSearch = this;
+    let html = '<option value="all"></option>';
+    for (let category of thisSearch.categories) {
+      html += `<option value="${category}">${category}</option>`;
+    }
+    document.querySelector(select.search.categories).innerHTML = html;
+  }
+
+  search(searchTerm, category) {
     const thisSearch = this;
     const searchResult = [];
     //console.log(searchTerm);
     //console.log(thisSearch.data);
-
+    //console.log(category);
     function cleanSearchTerm(searchTerm) {
       const lowerCaseSearchTerm = searchTerm.toLowerCase();
       const trimmedSearchTerm = lowerCaseSearchTerm.trim();
@@ -57,21 +84,68 @@ class Search {
       return noTitle;
     }
 
-    for (let song of thisSearch.data) {
-      const title = song.title.split(' ');
-      utils.toLowerCase(title);
-      const artist = cleanSongArtist(song.filename, title);
-      if (artist.indexOf(cleanSearchTerm(searchTerm)) > -1 || title.indexOf(cleanSearchTerm(searchTerm)) > -1) {
-        searchResult.push(song);
+    if ( searchTerm !== ''  && category === 'all') {
+
+      for (let song of thisSearch.data) {
+        const title = song.title.split(' ');
+        utils.toLowerCase(title);
+        const artist = cleanSongArtist(song.filename, title);
+        if (artist.indexOf(cleanSearchTerm(searchTerm)) > -1 || title.indexOf(cleanSearchTerm(searchTerm)) > -1) {
+          searchResult.push(song);
+        }
       }
+      const songCount = searchResult.length;
+          
+      for(let song of searchResult) {
+        console.log(searchResult);
+        new Song(song.id, song, thisSearch.dom.wrapper);
+      }
+      utils.initPlayers(select.widgets.searchPlayer);
+      thisSearch.dom.count.innerHTML = songCount;
+
+    } else if( searchTerm === '' && category !== 'all') {
+      let count = 0;
+      console.log(category);
+     for(let song of thisSearch.data) {
+      if (song.categories.includes(category)) {
+        count++;
+        new Song(song.id, song, thisSearch.dom.wrapper);
+      }
+     }
+     utils.initPlayers(select.widgets.searchPlayer);
+     thisSearch.dom.count.innerHTML = count;
+
+    } else if( searchTerm !== '' && category !== 'all') {
+      let count = 0;
+      console.log(category);
+      console.log(searchTerm);
+
+      for (let song of thisSearch.data) {
+        const title = song.title.split(' ');
+        utils.toLowerCase(title);
+        const artist = cleanSongArtist(song.filename, title);
+        if (artist.indexOf(cleanSearchTerm(searchTerm)) > -1 || title.indexOf(cleanSearchTerm(searchTerm)) > -1) {
+          searchResult.push(song);
+        }
+      }
+
+      for (let song of searchResult) {
+        if (song.categories.includes(category)) {
+          new Song(song.id, song, thisSearch.dom.wrapper);
+          count++;
+        }
+      }
+      utils.initPlayers(select.widgets.searchPlayer);
+      thisSearch.dom.count.innerHTML = count;
+
+    } else if ( searchTerm === '' && category === 'all') {
+
+      for (let song of thisSearch.data) {
+        new Song(song.id, song, thisSearch.dom.wrapper);
+      }
+      utils.initPlayers(select.widgets.searchPlayer);
+      thisSearch.dom.count.innerHTML = thisSearch.data.length;
     }
-    const songCount = searchResult.length;
-        
-    for(let song of searchResult) {
-      new Song(song.id, song, thisSearch.dom.wrapper);
-    }
-    utils.initPlayers(select.widgets.searchPlayer);
-    thisSearch.dom.count.innerHTML = songCount;
 
   }
 }

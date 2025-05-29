@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taste</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="vendor/green-audio-player.css">
     <link rel="stylesheet" href="css/style.css">
     <link fetchpriority="high" rel="preload" href="images/background.avif" as="image" crossorigin>
@@ -23,11 +24,12 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#search">Search</a></li>
-                <li><a href="#discover">Discover</a></li>
+                <li><a id="discover-nav-link" href="#discover">Discover</a></li>
             </ul>
     </nav>
     <main class="main-content">
         <section id="home" class="home-page" aria-label="Home">
+            <section class="categories-wrapper"></section>
             <section class="songs-wrapper" aria-label="Players"></section>
             <section class="subscribe" aria-labelledby="subscribe-title">
                 <h2 class="subscribe-title" id="subscribe-title">Subscribe <span>now</span></h2>
@@ -57,8 +59,13 @@
         <section id="search" class="search-page" aria-labelledby="search-title">
             <h2 class="section-title" id="search-title">Search</h2>
             <form class="search-container">
-                <label for="search-input">Name</label>
-                <input type="text" placeholder="Search" id="search-input">
+                <div class="search-options">
+                    <label for="search-input">Name</label>
+                    <input type="text" placeholder="Search" id="search-input">
+                    <label for="categories-select">Categories</label>
+                    <select name="categories" id="categories-select">
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-search">Search</button>
             </form>
             <h3 class="search-result">We have found <span class="search-count"></span> songs...</h3>
