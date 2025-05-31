@@ -97,7 +97,7 @@ class Search {
       const songCount = searchResult.length;
           
       for(let song of searchResult) {
-        console.log(searchResult);
+        //console.log(searchResult);
         new Song(song.id, song, thisSearch.dom.wrapper);
       }
       utils.initPlayers(select.widgets.searchPlayer);
@@ -105,7 +105,7 @@ class Search {
 
     } else if( searchTerm === '' && category !== 'all') {
       let count = 0;
-      console.log(category);
+      //console.log(category);
      for(let song of thisSearch.data) {
       if (song.categories.includes(category)) {
         count++;
@@ -117,8 +117,8 @@ class Search {
 
     } else if( searchTerm !== '' && category !== 'all') {
       let count = 0;
-      console.log(category);
-      console.log(searchTerm);
+      //console.log(category);
+      //console.log(searchTerm);
 
       for (let song of thisSearch.data) {
         const title = song.title.split(' ');

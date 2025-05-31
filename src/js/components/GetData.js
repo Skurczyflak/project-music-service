@@ -1,4 +1,4 @@
-import { settings } from '../settings.js';
+//import { settings } from '../settings.js';
 
 class GetData {
   constructor() {
@@ -22,7 +22,7 @@ class GetData {
     const response = await fetch('db/app.json');
     const data = await response.json();
     this.songs = data.songs;
-    console.log(this.songs);
+    //console.log(this.songs);
     return this.songs;
   } catch (error) {
     console.error('Error loading data:', error);

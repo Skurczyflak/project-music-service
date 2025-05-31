@@ -5,14 +5,13 @@ import Search from './components/Search.js';
 import GetData from './components/GetData.js';
 import utils from './utils.js';
 const app = {
-  playedSongs: {},
   initPages: function() {
     const thisApp = this;
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
     thisApp.navLinks = document.querySelectorAll(select.containerOf.nav);
     thisApp.btnSubscribe = document.querySelector(select.home.subscribeBtn);
-    const idFromHash = window.location.hash.replace('#/', '');
+    const idFromHash = window.location.hash.replace(/#\/?/, '');
 
     let pageMatchingHash = thisApp.pages[0].id;
     for (let page of thisApp.pages) {
@@ -39,15 +38,6 @@ const app = {
     }
 
   },
-
-  initPlayedSongs: function(data){
-    const thisApp = this;
-    const maxSongs = data.length;
-    for(let i = 0; i < maxSongs; i++){
-      thisApp.playedSongs[data[i].id] = 0;
-    }
-  },
-
   activatePage: function(pageId){
     const thisApp = this;
 
@@ -79,35 +69,43 @@ const app = {
     thisApp.search = new Search(data);
   },
 
-  initGetData: function() {
+  createDataService: function() {
     const thisApp = this;
     thisApp.data = new GetData();
   },
 
-  toUppercase: function(){
+  applyUppercaseStyling: function(){
     const toUpercase = classNames.toUpercase;
     const listToUpercase = classNames.listToUpercase;
     utils.oneToUpercase(toUpercase);
     utils.listToUpercase(listToUpercase);
   },
 
-  init: async function() {
+  initPagesWithData: function(data) {
     const thisApp = this;
-    thisApp.toUppercase();
-    thisApp.initGetData();
+    thisApp.initHomePage(data);
+    thisApp.initSearchPage(data);
+    thisApp.initDiscoverPage(data);
+  },
+
+  initData: async function() {
+    const thisApp = this;
+    thisApp.createDataService();
     try {
-      const data = await this.data.getData();
-      //console.log(data);
-      thisApp.initHomePage(data);
-      thisApp.initSearchPage(data);
-      thisApp.initPlayedSongs(data);
+      const data = await thisApp.data.getData();
+      thisApp.initPagesWithData(data);
     } catch (error) {
-      console.error('Error initializing app:', error);
+      console.error('Error initializing data:', error);
     }
+  },
+
+  initApp: function(){
+    const thisApp = this;
     thisApp.initPages();
-    thisApp.initDiscoverPage(thisApp.data.songs, thisApp.playedSongs);
+    thisApp.applyUppercaseStyling();
   },
 
 };
 
-app.init();
+app.initApp();
+app.initData();

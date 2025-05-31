@@ -6,11 +6,20 @@ class Discover {
 
     const thisDiscover = this;
     thisDiscover.data = data;
-    thisDiscover.played = played;
+    thisDiscover.played = {};
+    thisDiscover.initPlayedSongs();
     thisDiscover.getElements();
     thisDiscover.listenerPlay();
     thisDiscover.initSongs();
 
+  }
+
+  initPlayedSongs(){
+
+    const thisDiscover = this;
+    for (let song of thisDiscover.data){
+      thisDiscover.played[song.id] = 0;
+    }
   }
 
   getElements() {
